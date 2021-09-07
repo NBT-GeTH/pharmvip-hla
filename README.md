@@ -9,13 +9,16 @@ Workflow of HLA module.
 
 ## Usage 
 
-Create output files from result summarization of three HLA genotyping software (ATHLATES,HLA-HD,KOURAMI)
-
+1. Create output files from result summarization of three HLA genotyping software (ATHLATES,HLA-HD,KOURAMI)
+- input : result_ATHLATES.txt result_HLAHD.txt result_KOURAMI.txt
+- output : hla_summary.txt hla_results_for_diplotype.txt
 ```shell
 python HLA_final2.py -i result_ATHLATES.txt,result_HLAHD.txt,result_KOURAMI.txt
 ```
-Prepare HLA result file for pharmvip-guideline module.
+2. Prepare HLA result file for pharmvip-guideline module (parameter --diplotype_hla).
+- input : hla_results_for_diplotype.txt haplotype_mapping_HLA.txt
+- output : diplotype_HLA.tsv
 
 ```shell
-python diplotype_HLA.py HLAMergefile.txt path/to/hla_resource sampleId
+python diplotype_HLA.py hla_results_for_diplotype.txt path/to/hla_resource/haplotype_mapping_HLA.txt NameSample
 ```
